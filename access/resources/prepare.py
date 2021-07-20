@@ -117,6 +117,41 @@ def prepare_turkcorpus():
                     files.write([complex_sentence] + reordered_sentences)
     return dataset
 
+def prepare_asset():
+    dataset = 'asset'
+    with create_directory_or_skip(get_dataset_dir(dataset)):
+        url = 'https://github.com/facebookresearch/asset/tree/master/dataset'
+        output_dir = Path(tempfile.mkdtemp())
+        git_clone(url, output_dir)
+        print(output_dir)
+        print('Processing...')
+        # Only rename files and put them in local directory architecture
+        asset_lower_dir = output_dir / 'dataset'
+        print(asset_lower_dir)
+        for (old_phase, new_phase) in [('test', 'test'), ('valid', 'valid')]:
+            for (old_language_name, new_language_name) in [('orig', 'complex'), ('simp', 'simple')]:
+                
+                if old_language_name == 'simp':
+
+                    for i in range(8):
+                        old_path = asset_lower_dir / f'asset.{old_phase}.{old_language_name}.{i}'
+                        new_path = get_data_filepath('asset', new_phase, new_language_name, i=i)
+                        shutil.copyfile(old_path, new_path)
+                        add_newline_at_end_of_file(new_path)
+                        shutil.move(replace_lrb_rrb_file(new_path), new_path)
+
+                    else :                                        
+                        old_path = asset_lower_dir / f'asset.{old_phase}.{old_language_name}'
+                        new_path = get_data_filepath('asset', new_phase, new_language_name)
+                        shutil.copyfile(old_path, new_path)
+                        add_newline_at_end_of_file(new_path)
+                        shutil.move(replace_lrb_rrb_file(new_path), new_path)
+        print('Done.')
+    return dataset
+
+
+
+
 
 def prepare_fasttext_embeddings():
     FASTTEXT_EMBEDDINGS_PATH.parent.mkdir(parents=True, exist_ok=True)

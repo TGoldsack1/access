@@ -5,15 +5,16 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-from access.evaluation.general import evaluate_simplifier_on_turkcorpus
+from access.evaluation.general import evaluate_simplifier_on_turkcorpus, evaluate_simplifier_on_asset
 from access.preprocessors import get_preprocessors
-from access.resources.prepare import prepare_turkcorpus, prepare_models
+from access.resources.prepare import prepare_turkcorpus, prepare_models, prepare_asset
 from access.simplifiers import get_fairseq_simplifier, get_preprocessed_simplifier
 
 
 if __name__ == '__main__':
     print('Evaluating pretrained model')
-    prepare_turkcorpus()
+    #prepare_turkcorpus()
+    prepare_asset()
     best_model_dir = prepare_models()
     recommended_preprocessors_kwargs = {
         'LengthRatioPreprocessor': {'target_ratio': 0.95},
@@ -24,4 +25,6 @@ if __name__ == '__main__':
     preprocessors = get_preprocessors(recommended_preprocessors_kwargs)
     simplifier = get_fairseq_simplifier(best_model_dir, beam=8)
     simplifier = get_preprocessed_simplifier(simplifier, preprocessors=preprocessors)
-    print(evaluate_simplifier_on_turkcorpus(simplifier, phase='test'))
+    #print(evaluate_simplifier_on_turkcorpus(simplifier, phase='test'))
+    print(evaluate_simplifier_on_asset(simplifier, phase='test'))
+
