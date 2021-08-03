@@ -1,0 +1,4 @@
+reward-learning-from-observation ( t-rex ) , trajectory-ranked reward functions from a set of potentially poor demonstrations , for example .
+When combined with deep reinforcement learning , the state-of-the-art imitation learning and irl methods get more than twice the best demonstration . This is done by many atari and mujoco benchmark tasks and achieves performance .
+we also demonstrate that t-rex is robust to ranking noise and can improve them by simply watching a learner using noisily improve at a task over time .
+due to advantages .

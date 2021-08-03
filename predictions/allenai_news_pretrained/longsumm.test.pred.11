@@ -1,0 +1,4 @@
+modern online services come with quality requirements in terms of response time tail latency .
+Because of their decomposition into good-grained communicating software layers , a single user request fans out into a plethora of short , making the need for faster inter-server communication .
+In reaction to that need , we are witnessing a change of hardware-terminated user-level and new architectures with fully integrated network interfaces ( called '' nis '' ) .
+such architectures offer a opportunity for a new ni-driven approach to balancing rpcs among the cores of manycore server cpus . They also have major tail latency improvements .

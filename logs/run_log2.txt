@@ -1,0 +1,298 @@
+Training a model from scratch
+Creating /home/tomas/code/models/access/resources/datasets/asset...
+/tmp/tmprke2858j
+Processing...
+/tmp/tmprke2858j/dataset
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.complex
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.0
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.1
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.2
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.3
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.4
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.5
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.6
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.7
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.8
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.test.simple.9
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.complex
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.0
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.1
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.2
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.3
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.4
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.5
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.6
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.7
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.8
+Adding newline at the end of /home/tomas/code/models/access/resources/datasets/asset/asset.valid.simple.9
+Done.
+method_name='fairseq_train_and_evaluate'
+args=()
+kwargs={'arch': 'transformer', 'warmup_updates': 4000, 'parametrization_budget': 256, 'beam': 8, 'batch-size': 32, 'dataset': 'wikilarge', 'dropout': 0.2, 'fp16': False, 'label_smoothing': 0.54, 'lr': 0.00011, 'lr_scheduler': 'fixed', 'max_epoch': 100, 'max_tokens': 5000, 'metrics_coefs': [0, 1, 0], 'optimizer': 'adam', 'preprocessors_kwargs': {'LengthRatioPreprocessor': {'target_ratio': 0.8}, 'LevenshteinPreprocessor': {'target_ratio': 0.8}, 'WordRankRatioPreprocessor': {'target_ratio': 0.8}, 'DependencyTreeDepthRatioPreprocessor': {'target_ratio': 0.8}, 'SentencePiecePreprocessor': {'vocab_size': 10000}}}
+Namespace(adam_betas='(0.9, 0.999)', adam_eps=1e-08, adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, arch='transformer', attention_dropout=0.0, bucket_cap_mb=25, clip_norm=0.1, cpu=False, criterion='label_smoothed_cross_entropy', curriculum=0, data=['/home/tomas/code/models/access/resources/datasets/_2912c535c2343258d2e6375bca3e3a3d/fairseq_preprocessed'], ddp_backend='c10d', decoder_attention_heads=8, decoder_embed_dim=512, decoder_embed_path=None, decoder_ffn_embed_dim=2048, decoder_input_dim=512, decoder_layers=6, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=512, device_id=0, distributed_backend='nccl', distributed_init_method=None, distributed_port=-1, distributed_rank=0, distributed_world_size=1, dropout=0.2, encoder_attention_heads=8, encoder_embed_dim=512, encoder_embed_path=None, encoder_ffn_embed_dim=2048, encoder_layers=6, encoder_learned_pos=False, encoder_normalize_before=False, fix_batches_to_gpus=False, force_anneal=None, fp16=False, fp16_init_scale=128, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_interval_updates=-1, keep_last_epochs=-1, label_smoothing=0.54, lazy_load=False, left_pad_source='True', left_pad_target='False', log_format=None, log_interval=1000, lr=[0.00011], lr_scheduler='fixed', lr_shrink=0.5, max_epoch=100, max_sentences=None, max_sentences_valid=None, max_source_positions=1024, max_target_positions=1024, max_tokens=5000, max_update=0, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=1e-09, momentum=0.99, no_epoch_checkpoints=True, no_progress_bar=False, no_save=False, no_token_positional_embeddings=False, num_workers=0, optimizer='adam', optimizer_overrides='{}', raw_text=True, relu_dropout=0.0, required_batch_size_multiple=8, reset_lr_scheduler=False, reset_optimizer=False, restore_file='checkpoint_last.pt', save_dir='/home/tomas/code/models/access/experiments/fairseq/local_1626859615218/checkpoints', save_interval=1, save_interval_updates=5000, seed=647, sentence_avg=False, share_all_embeddings=False, share_decoder_input_output_embed=False, skip_invalid_size_inputs_valid_test=False, source_lang='complex', target_lang='simple', task='translation', tensorboard_logdir='', threshold_loss_scale=None, train_subset='train', update_freq=[1], upsample_primary=1, user_dir=None, valid_subset='valid', validate_interval=1, validations_before_sari_early_stopping=10.0, warmup_updates=4000, weight_decay=0.0001)
+| [complex] dictionary: 10176 types
+| [simple] dictionary: 10048 types
+| /home/tomas/code/models/access/resources/datasets/_2912c535c2343258d2e6375bca3e3a3d/fairseq_preprocessed train 296402 examples
+| /home/tomas/code/models/access/resources/datasets/_2912c535c2343258d2e6375bca3e3a3d/fairseq_preprocessed valid 992 examples
+TransformerModel(
+  (encoder): TransformerEncoder(
+    (embed_tokens): Embedding(10176, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (layer_norms): ModuleList(
+          (0): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (layer_norms): ModuleList(
+          (0): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (layer_norms): ModuleList(
+          (0): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (layer_norms): ModuleList(
+          (0): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (layer_norms): ModuleList(
+          (0): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (layer_norms): ModuleList(
+          (0): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+  )
+  (decoder): TransformerDecoder(
+    (embed_tokens): Embedding(10048, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+)
+| model transformer, criterion LabelSmoothedCrossEntropyCriterion
+| num. model params: 59637760 (num. trained: 59637760)
+| training on 1 GPUs
+| max tokens per GPU = 5000 and max sentences per GPU = None
+| no existing checkpoint found /home/tomas/code/models/access/experiments/fairseq/local_1626859615218/checkpoints/checkpoint_last.pt
+| NOTICE: your device may support faster training with --fp16
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 178.00 MiB (GPU 0; 5.80 GiB total capacity; 4.22 GiB already allocated; 123.69 MiB free; 646.34 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 192.00 MiB (GPU 0; 5.80 GiB total capacity; 4.50 GiB already allocated; 123.69 MiB free; 366.28 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 180.00 MiB (GPU 0; 5.80 GiB total capacity; 4.37 GiB already allocated; 123.69 MiB free; 492.16 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 182.00 MiB (GPU 0; 5.80 GiB total capacity; 4.43 GiB already allocated; 123.69 MiB free; 428.88 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 168.00 MiB (GPU 0; 5.80 GiB total capacity; 4.31 GiB already allocated; 123.69 MiB free; 559.14 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 166.00 MiB (GPU 0; 5.80 GiB total capacity; 4.14 GiB already allocated; 123.69 MiB free; 734.04 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 172.00 MiB (GPU 0; 5.80 GiB total capacity; 4.18 GiB already allocated; 123.69 MiB free; 689.72 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 174.00 MiB (GPU 0; 5.80 GiB total capacity; 4.26 GiB already allocated; 123.69 MiB free; 607.92 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 188.00 MiB (GPU 0; 5.80 GiB total capacity; 4.38 GiB already allocated; 123.69 MiB free; 484.56 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 184.00 MiB (GPU 0; 5.80 GiB total capacity; 4.33 GiB already allocated; 143.69 MiB free; 513.80 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 170.00 MiB (GPU 0; 5.80 GiB total capacity; 4.20 GiB already allocated; 141.69 MiB free; 653.22 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 182.00 MiB (GPU 0; 5.80 GiB total capacity; 4.45 GiB already allocated; 141.69 MiB free; 395.46 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 178.00 MiB (GPU 0; 5.80 GiB total capacity; 4.22 GiB already allocated; 161.69 MiB free; 610.95 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 180.00 MiB (GPU 0; 5.80 GiB total capacity; 4.54 GiB already allocated; 27.69 MiB free; 420.89 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 192.00 MiB (GPU 0; 5.80 GiB total capacity; 4.40 GiB already allocated; 133.69 MiB free; 450.06 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 180.00 MiB (GPU 0; 5.80 GiB total capacity; 4.20 GiB already allocated; 133.69 MiB free; 655.91 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 170.00 MiB (GPU 0; 5.80 GiB total capacity; 4.37 GiB already allocated; 133.69 MiB free; 484.77 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 184.00 MiB (GPU 0; 5.80 GiB total capacity; 4.39 GiB already allocated; 133.69 MiB free; 461.64 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 188.00 MiB (GPU 0; 5.80 GiB total capacity; 4.54 GiB already allocated; 133.69 MiB free; 307.28 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 172.00 MiB (GPU 0; 5.80 GiB total capacity; 4.36 GiB already allocated; 135.69 MiB free; 497.73 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 192.00 MiB (GPU 0; 5.80 GiB total capacity; 4.49 GiB already allocated; 135.69 MiB free; 359.75 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 184.00 MiB (GPU 0; 5.80 GiB total capacity; 4.45 GiB already allocated; 135.69 MiB free; 397.52 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 192.00 MiB (GPU 0; 5.80 GiB total capacity; 4.33 GiB already allocated; 135.69 MiB free; 525.42 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 156.00 MiB (GPU 0; 5.80 GiB total capacity; 4.00 GiB already allocated; 135.69 MiB free; 862.44 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 160.00 MiB (GPU 0; 5.80 GiB total capacity; 4.29 GiB already allocated; 135.69 MiB free; 568.02 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 172.00 MiB (GPU 0; 5.80 GiB total capacity; 4.25 GiB already allocated; 135.69 MiB free; 608.20 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 172.00 MiB (GPU 0; 5.80 GiB total capacity; 4.42 GiB already allocated; 135.69 MiB free; 428.34 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 172.00 MiB (GPU 0; 5.80 GiB total capacity; 4.25 GiB already allocated; 135.69 MiB free; 607.07 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 184.00 MiB (GPU 0; 5.80 GiB total capacity; 4.34 GiB already allocated; 155.69 MiB free; 493.67 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 162.00 MiB (GPU 0; 5.80 GiB total capacity; 4.10 GiB already allocated; 155.69 MiB free; 734.52 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 192.00 MiB (GPU 0; 5.80 GiB total capacity; 4.57 GiB already allocated; 155.69 MiB free; 259.70 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 182.00 MiB (GPU 0; 5.80 GiB total capacity; 4.19 GiB already allocated; 175.69 MiB free; 625.50 MiB cached);
+ Skipping batch
+| WARNING: OOM in all workers, skipping update
+| WARNING: ran out of memory with exception: CUDA out of memory. Tried to allocate 178.00 MiB (GPU 0; 5.80 GiB total capacity; 4.29 GiB already allocated; 169.69 MiB free; 534.04 MiB cached);
+ Skipping batch

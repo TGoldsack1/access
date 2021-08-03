@@ -6,13 +6,14 @@
 #
 
 from access.fairseq.main import fairseq_train_and_evaluate
-from access.resources.prepare import prepare_wikilarge, prepare_turkcorpus
+from access.resources.prepare import prepare_wikilarge, prepare_turkcorpus, prepare_asset
 
 
 if __name__ == '__main__':
     print('Training a model from scratch')
     prepare_wikilarge()
-    prepare_turkcorpus()
+    #prepare_turkcorpus()
+    prepare_asset()
     kwargs = {
         'arch': 'transformer',
         'warmup_updates': 4000,
@@ -26,6 +27,7 @@ if __name__ == '__main__':
         'lr_scheduler': 'fixed',
         'max_epoch': 100,
         'max_tokens': 5000,
+        'max_sentences': 32,        ## ADDED BY ME
         'metrics_coefs': [0, 1, 0],
         'optimizer': 'adam',
         'preprocessors_kwargs': {

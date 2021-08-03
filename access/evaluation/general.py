@@ -33,6 +33,7 @@ def evaluate_simplifier_on_turkcorpus(simplifier, phase):
 
 def get_prediction_on_asset(simplifier, phase):
     source_filepath = get_data_filepath('asset', phase, 'complex')
+    print(source_filepath)
     pred_filepath = get_temp_filepath()
     with mute():
         simplifier(source_filepath, pred_filepath)
@@ -40,10 +41,11 @@ def get_prediction_on_asset(simplifier, phase):
 
 
 def evaluate_simplifier_on_asset(simplifier, phase):
-    pred_filepath = get_prediction_on_turkcorpus(simplifier, phase)
+    pred_filepath = get_prediction_on_asset(simplifier, phase)
+    print(pred_filepath)
     pred_filepath = lowercase_file(pred_filepath)
     pred_filepath = to_lrb_rrb_file(pred_filepath)
-    return evaluate_system_output(f'asset_{phase}_legacy',
+    return evaluate_system_output(f'asset_{phase}',
                                   sys_sents_path=pred_filepath,
                                   metrics=['bleu', 'sari_legacy', 'fkgl'],
                                   quality_estimation=True)

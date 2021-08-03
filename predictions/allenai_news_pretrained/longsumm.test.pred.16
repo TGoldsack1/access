@@ -1,0 +1,5 @@
+learning techniques require a task distribution to learn such as decompositions , and meta-learning techniques require a task distribution at hand to learn such things .
+This paper presents a framework for using different world models to understand the importance and robustness of different elements in the framework and limitations to this approach .
+In the lifelong learning setting , we want our agent to solve a series of related tasks after learning to solve new tasks in a learning setting .
+our work takes a step towards solutions such as settings .
+Other pages

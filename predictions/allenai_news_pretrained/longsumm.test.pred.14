@@ -1,0 +1,7 @@
+Many organizations today have more than very large databases ; they have databases that grow without limit at a rate of several million records per day .
+A lot of people bring them unique opportunities , but also new challenges .
+This paper describes the system that builds decision trees using constant memory and constant time per example ( see below ) .
+Vfdt can have tens of thousands of examples per second using hardware per second .
+It uses very small bounds to guarantee that its output is asymptotically nearly identical to that of a conventional learner .
+we study making things very important and demonstrate its utility through an extensive set of experiments on synthetic data .
+we apply to mining in the continuous stream of web access data .

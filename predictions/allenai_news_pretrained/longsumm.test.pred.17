@@ -1,0 +1,5 @@
+In which we simultaneously train two models : the probability that a sample came from the training data rather than g , the training procedure for g is to maximize the probability of making a mistake . A sample came from the training data rather than g , and the training procedure for g is to change the probability of d making a mistake .
+The framework corresponds to two-player in the space of arbitrary functions g and d , a unique solution exists , with g recovering the training data distribution and d equal to 1 2 everywhere .
+In the case where g and d are defined by the entire system , the entire system can be trained with a backpropagation .
+to detect the currency .
+The competition

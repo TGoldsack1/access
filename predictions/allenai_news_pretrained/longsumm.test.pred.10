@@ -1,0 +1,4 @@
+large scale training and test datasets have been missing for this type of work .
+In this work we define a new methodology that shows this bottleneck and provides large scale supervised reading data .
+This allows us to develop a class of attention based deep neural networks that learn to read real documents and understanding documents that they have seen , but now large scale training and test datasets have been based on either hand engineered grammars [ 1 ] , or information that can later be used as a relation to find a database .
+supervised machine learning approaches have largely been absent from this space because they do not have a lot of large scale training data .

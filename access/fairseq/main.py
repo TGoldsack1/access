@@ -13,7 +13,8 @@ from nevergrad.instrumentation import Instrumentation
 from nevergrad.optimization import optimizerlib
 import re
 
-from access.evaluation.general import evaluate_simplifier_on_turkcorpus
+from access.evaluation.general import evaluate_simplifier_on_turkcorpus, evaluate_simplifier_on_asset
+
 from access.evaluation.utils import combine_metrics
 from access.fairseq.base import (fairseq_preprocess, fairseq_train, fairseq_generate, get_fairseq_exp_dir,
                                  )
@@ -29,10 +30,15 @@ from access.utils.helpers import get_allowed_kwargs
 
 def check_dataset(dataset):
     # Sanity check with evaluation dataset
+    # assert not has_lines_in_common(get_data_filepath(dataset, 'train', 'complex'),
+    #                                get_data_filepath('turkcorpus', 'valid', 'complex'))
+    # assert not has_lines_in_common(get_data_filepath(dataset, 'train', 'complex'),
+    #                                get_data_filepath('turkcorpus', 'test', 'complex'))
+
     assert not has_lines_in_common(get_data_filepath(dataset, 'train', 'complex'),
-                                   get_data_filepath('turkcorpus', 'valid', 'complex'))
+                                   get_data_filepath('asset', 'valid', 'complex'))
     assert not has_lines_in_common(get_data_filepath(dataset, 'train', 'complex'),
-                                   get_data_filepath('turkcorpus', 'test', 'complex'))
+                                   get_data_filepath('asset', 'test', 'complex'))
 
 
 def prepare_exp_dir():
@@ -58,7 +64,12 @@ def find_best_parametrization(exp_dir, metrics_coefs, preprocessors_kwargs, para
         # Note that we use default generate kwargs instead of provided one because they are faster
         preprocessors_kwargs = instru_kwargs_to_preprocessors_kwargs(instru_kwargs)
         simplifier = get_simplifier(exp_dir, preprocessors_kwargs=preprocessors_kwargs, generate_kwargs={})
-        scores = evaluate_simplifier_on_turkcorpus(simplifier, phase='valid')
+        
+        
+        #scores = evaluate_simplifier_on_turkcorpus(simplifier, phase='valid')
+        scores = evaluate_simplifier_on_asset(simplifier, phase='valid')
+
+        
         return combine_metrics(scores['BLEU'], scores['SARI'], scores['FKGL'], metrics_coefs)
 
     def preprocessors_kwargs_to_instru_kwargs(preprocessors_kwargs):
@@ -118,6 +129,7 @@ def fairseq_train_and_evaluate(dataset, metrics_coefs=[1, 1, 1], parametrization
         shutil.copy(get_dataset_dir(dataset) / 'preprocessors.pickle', exp_dir)
     preprocessed_dir = fairseq_preprocess(dataset)
     train_kwargs = get_allowed_kwargs(fairseq_train, preprocessed_dir, exp_dir, **kwargs)
+    
     fairseq_train(preprocessed_dir, exp_dir=exp_dir, **train_kwargs)
     # Evaluation
     generate_kwargs = get_allowed_kwargs(fairseq_generate, 'complex_filepath', 'pred_filepath', exp_dir, **kwargs)
@@ -125,7 +137,10 @@ def fairseq_train_and_evaluate(dataset, metrics_coefs=[1, 1, 1], parametrization
                                                                  parametrization_budget)
     print(f'recommended_preprocessors_kwargs={recommended_preprocessors_kwargs}')
     simplifier = get_simplifier(exp_dir, recommended_preprocessors_kwargs, generate_kwargs)
-    scores = evaluate_simplifier_on_turkcorpus(simplifier, phase='valid')
+    
+    #scores = evaluate_simplifier_on_turkcorpus(simplifier, phase='valid')
+    scores = evaluate_simplifier_on_asset(simplifier, phase='valid')
+    
     print(f'scores={scores}')
     score = combine_metrics(scores['BLEU'], scores['SARI'], scores['FKGL'], metrics_coefs)
     return score
